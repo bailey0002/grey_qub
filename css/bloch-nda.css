@@ -1,0 +1,29 @@
+/* ==========================================================================
+   BLOCH-NDA — page specific layout
+   ========================================================================== */
+
+.block{ padding:60px 48px; max-width:1100px; margin:0 auto; }
+.block h2{ font-size:clamp(24px, 3vw, 34px); margin-bottom:22px; }
+.block p{ color:var(--ink-dim); font-size:15.5px; line-height:1.8; max-width:780px; }
+.block p + p{ margin-top:16px; }
+
+.preview-frame{
+  max-width:1100px; margin:0 auto; padding:0 48px 70px;
+}
+.preview-box{
+  aspect-ratio:16/9; border-radius:16px; background:var(--bg-soft); box-shadow:var(--shadow-in);
+  display:flex; align-items:center; justify-content:center; flex-direction:column; gap:10px;
+}
+.preview-box .eyebrow{ color:var(--ink-dim); }
+.preview-box .glyph{ width:52px; height:52px; opacity:.5; }
+
+.cta-block{
+  max-width:1100px; margin:0 auto; padding:40px 48px 120px; display:flex; flex-direction:column; gap:24px; align-items:flex-start;
+}
+.cta-block .tagline{ font-family:'Newsreader', serif; font-style:italic; font-size:20px; color:var(--ink-dim); }
+
+@media (max-width:880px){
+  .block{ padding:44px 22px; }
+  .preview-frame{ padding:0 22px 50px; }
+  .cta-block{ padding:30px 22px 90px; }
+}

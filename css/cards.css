@@ -1,0 +1,46 @@
+/* ==========================================================================
+   CARDS — shared card shell used on the landing grid, metrics, and
+   differentiation blocks
+   ========================================================================== */
+
+.grid{
+  display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+  gap:26px; padding:20px 48px 60px; max-width:1500px; margin:0 auto;
+}
+.grid.grid-tight{ grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); }
+.grid.grid-quad{ grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); }
+
+.card{
+  background:var(--card-bg); border-radius:12px; padding:28px; box-shadow:var(--shadow-out);
+  border:2px solid transparent; transition:transform .3s var(--ease), border-color .3s var(--ease);
+  display:flex; flex-direction:column; gap:16px;
+}
+.card.lead{ border-color:var(--accent-soft); }
+.card.card-link{ cursor:pointer; }
+.card.card-link:hover{ transform:translateY(-6px); border-color:var(--accent); }
+.card.card-inactive{ opacity:.55; }
+.card.card-inactive:hover{ transform:none; }
+
+.card .num{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.14em; color:var(--ink-dim); display:flex; justify-content:space-between; align-items:center; }
+.card h3{ font-size:22px; letter-spacing:.01em; }
+.card p{ color:var(--ink-dim); font-size:14.5px; line-height:1.65; margin:0; }
+
+.pill{
+  align-self:flex-start; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--ink-dim); border:1px solid var(--line); padding:4px 10px; border-radius:100px;
+}
+
+/* metric cards */
+.metric-card{
+  background:var(--card-bg); border-radius:12px; padding:34px 28px; box-shadow:var(--shadow-out);
+  text-align:left;
+}
+.metric-card .metric-num{ font-family:'Space Grotesk', sans-serif; font-weight:300; font-size:clamp(28px,4vw,42px); color:var(--ink); line-height:1.05; }
+.metric-card .metric-label{ margin-top:10px; font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:.1em; color:var(--ink-dim); }
+
+/* feature / differentiation cards */
+.feature-card{
+  background:var(--bg-soft); border-radius:12px; padding:26px; box-shadow:var(--shadow-in);
+}
+.feature-card h3{ font-size:18px; margin-bottom:8px; }
+.feature-card p{ color:var(--ink-dim); font-size:14px; line-height:1.6; margin:0; }

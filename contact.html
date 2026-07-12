@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Grey Qub</title>
+<meta name="description" content="Get in touch with Grey Qub.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=Newsreader:ital,wght@0,300;0,400;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/nav.css">
+<link rel="stylesheet" href="css/hero.css">
+<link rel="stylesheet" href="css/buttons.css">
+<link rel="stylesheet" href="css/footer.css">
+<link rel="stylesheet" href="css/contact.css">
+</head>
+<body>
+<div class="grain"></div>
+<div class="topline"></div>
+
+<nav>
+  <a class="navmark" href="index.html">
+    <div class="word">GREY QUB</div>
+  </a>
+  <div class="navmenu-wrap">
+    <button class="bars" type="button" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    <div class="navmenu">
+      <a href="index.html#blochs">/blochs</a>
+      <a href="bloch-slr.html">/axis</a>
+      <a href="contact.html">/contact</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-header" style="padding-bottom:20px;">
+  <span class="eyebrow">/contact</span>
+  <h1>Request Access</h1>
+  <p class="lede">Tell us a bit about your team and what you're looking to review. We'll follow up shortly.</p>
+</div>
+
+<div class="contact-frame">
+  <form class="contact-card" action="mailto:hello@greyqub.com" method="post" enctype="text/plain">
+    <div>
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" required>
+    </div>
+    <div>
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required>
+    </div>
+    <div>
+      <label for="org">Organization</label>
+      <input type="text" id="org" name="org">
+    </div>
+    <div>
+      <label for="message">Message</label>
+      <textarea id="message" name="message" placeholder="What are you looking to review — NDAs, syndicated loan agreements?"></textarea>
+    </div>
+    <button class="btn-cta" type="submit">Send</button>
+  </form>
+
+  <div class="contact-direct">
+    <span class="eyebrow">Prefer email</span>
+    <a href="mailto:hello@greyqub.com">hello@greyqub.com</a>
+  </div>
+</div>
+
+<footer>
+  <div class="foot-inner">
+    <p>Grey Qub — automated document intelligence for legal and financial professionals.</p>
+    <div class="foot-links">
+      <a href="index.html#blochs">/blochs</a>
+      <a href="bloch-slr.html">/axis</a>
+      <a href="contact.html">/contact</a>
+    </div>
+  </div>
+</footer>
+
+<script src="js/nav.js"></script>
+</body>
+</html>

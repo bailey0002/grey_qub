@@ -1,0 +1,21 @@
+/* ==========================================================================
+   LANDING — index.html specific layout
+   ========================================================================== */
+
+.section-title{ padding:70px 48px 10px; max-width:1500px; margin:0 auto; }
+.section-title .lede{ color:var(--ink-dim); font-size:16px; line-height:1.75; max-width:660px; margin-top:10px; }
+
+.lockup{ display:flex; align-items:center; gap:12px; padding-top:14px; border-top:1px solid var(--line); }
+.lockup .mini-icon{ width:30px; height:30px; }
+.lockup .word{ font-family:'Space Grotesk',sans-serif; font-size:13px; letter-spacing:.18em; }
+
+.icon-tile{
+  aspect-ratio:1; border-radius:10px; background:var(--bg-soft); box-shadow:var(--shadow-in);
+  display:flex; align-items:center; justify-content:center;
+}
+.icon-tile svg{ width:58%; height:58%; }
+
+@media (max-width:880px){
+  .section-title{ padding:50px 22px 10px; }
+  .grid{ padding:10px 22px 60px; }
+}
