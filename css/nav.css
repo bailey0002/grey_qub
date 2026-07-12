@@ -5,7 +5,7 @@
 /* thin animated accent line — a larger, more conspicuous cousin of the
    hero scrollcue's "drip", run across the very top of every page */
 .topline{
-  position:fixed; top:0; left:0; right:0; height:2px; z-index:300;
+  position:fixed; top:env(safe-area-inset-top, 0px); left:0; right:0; height:2px; z-index:300;
   background:var(--line); overflow:hidden;
 }
 .topline::after{
@@ -18,15 +18,32 @@
 nav{
   position:fixed; top:0; left:0; right:0; z-index:200;
   display:flex; align-items:center; justify-content:space-between;
-  padding:26px 48px; background:linear-gradient(180deg, var(--bg) 55%, transparent);
+  padding:calc(26px + env(safe-area-inset-top, 0px)) calc(48px + env(safe-area-inset-right, 0px)) 26px calc(48px + env(safe-area-inset-left, 0px));
+  background:linear-gradient(180deg, var(--bg) 55%, transparent);
 }
 .navmark{ display:flex; align-items:center; gap:12px; text-decoration:none; }
-.bars{ width:26px; display:flex; flex-direction:column; gap:4px; cursor:pointer; background:none; border:none; padding:0; }
+.bars{
+  width:44px; height:44px; padding:9px; box-sizing:border-box;
+  display:flex; flex-direction:column; justify-content:center; gap:4px;
+  cursor:pointer; background:none; border:none;
+}
 .bars span{ display:block; height:2px; background:var(--ink); transition:.25s var(--ease); }
 .bars span:nth-child(1){ width:100%; }
 .bars span:nth-child(2){ width:70%; }
 .bars span:nth-child(3){ width:45%; }
 .navmark .word{ font-family:'Space Grotesk',sans-serif; letter-spacing:.24em; font-size:13px; color:var(--ink); }
+
+/* wordline — a thin horizontal sweep under the wordmark, same motion
+   language as .topline (just shorter parent, longer relative sweep) */
+.navmark .wordwrap{ display:flex; flex-direction:column; gap:6px; }
+.wordline{
+  position:relative; width:170px; height:1.5px; overflow:hidden; background:var(--line);
+}
+.wordline::after{
+  content:''; position:absolute; top:0; left:-35%; width:35%; height:100%;
+  background:linear-gradient(90deg, transparent, var(--accent) 50%, transparent);
+  animation:topline-sweep 3.6s ease-in-out infinite;
+}
 
 .navmenu-wrap{ position:relative; }
 
@@ -48,5 +65,7 @@ nav{
 .navmenu a:hover{ background:var(--accent-soft); color:var(--ink); }
 
 @media (max-width:880px){
-  nav{ padding:20px 22px; }
+  nav{
+    padding:calc(20px + env(safe-area-inset-top, 0px)) calc(22px + env(safe-area-inset-right, 0px)) 20px calc(22px + env(safe-area-inset-left, 0px));
+  }
 }
