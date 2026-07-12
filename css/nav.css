@@ -28,25 +28,16 @@ nav{
 .bars span:nth-child(3){ width:45%; }
 .navmark .word{ font-family:'Space Grotesk',sans-serif; letter-spacing:.24em; font-size:13px; color:var(--ink); }
 
-/* dot-matrix wave — evenly spaced dots that fade in/out in sequence,
-   run underneath the wordmark; same accent + easing as .topline */
+/* wordline — a thin horizontal sweep under the wordmark, same motion
+   language as .topline (just shorter parent, longer relative sweep) */
 .navmark .wordwrap{ display:flex; flex-direction:column; gap:6px; }
-.dotline{ display:flex; align-items:center; gap:5px; }
-.dotline span{
-  width:3px; height:3px; border-radius:50%; background:var(--accent);
-  opacity:.15; animation:dot-pulse 2.8s var(--ease) infinite;
+.wordline{
+  position:relative; width:170px; height:1.5px; overflow:hidden; background:var(--line);
 }
-.dotline span:nth-child(1){ animation-delay:0s; }
-.dotline span:nth-child(2){ animation-delay:.14s; }
-.dotline span:nth-child(3){ animation-delay:.28s; }
-.dotline span:nth-child(4){ animation-delay:.42s; }
-.dotline span:nth-child(5){ animation-delay:.56s; }
-.dotline span:nth-child(6){ animation-delay:.7s; }
-.dotline span:nth-child(7){ animation-delay:.84s; }
-.dotline span:nth-child(8){ animation-delay:.98s; }
-@keyframes dot-pulse{
-  0%, 100%{ opacity:.12; transform:scale(.7); }
-  50%{ opacity:1; transform:scale(1.3); }
+.wordline::after{
+  content:''; position:absolute; top:0; left:-35%; width:35%; height:100%;
+  background:linear-gradient(90deg, transparent, var(--accent) 50%, transparent);
+  animation:topline-sweep 3.6s ease-in-out infinite;
 }
 
 .navmenu-wrap{ position:relative; }
