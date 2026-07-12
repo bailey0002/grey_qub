@@ -2,7 +2,11 @@
    FOOTER — shared across every page
    ========================================================================== */
 
-footer{ max-width:1100px; margin:0 auto; padding:60px 48px 120px; text-align:left; }
+footer{
+  max-width:1100px; margin:0 auto;
+  padding:60px calc(48px + env(safe-area-inset-right, 0px)) calc(120px + env(safe-area-inset-bottom, 0px)) calc(48px + env(safe-area-inset-left, 0px));
+  text-align:left;
+}
 footer .foot-inner{ border-top:1px solid var(--line); padding-top:26px; display:flex; justify-content:space-between; align-items:flex-end; gap:24px; flex-wrap:wrap; }
 footer p{ color:var(--ink-dim); font-size:14px; line-height:1.7; margin:0; }
 footer .foot-links{ display:flex; gap:22px; }
@@ -10,5 +14,7 @@ footer .foot-links a{ font-family:'IBM Plex Mono', monospace; font-size:11px; le
 footer .foot-links a:hover{ color:var(--ink); }
 
 @media (max-width:880px){
-  footer{ padding:40px 22px 90px; }
+  footer{
+    padding:40px calc(22px + env(safe-area-inset-right, 0px)) calc(90px + env(safe-area-inset-bottom, 0px)) calc(22px + env(safe-area-inset-left, 0px));
+  }
 }

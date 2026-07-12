@@ -17,8 +17,8 @@
   --shadow-in: inset 2px 2px 5px rgba(60,55,45,0.16), inset -2px -2px 5px rgba(255,255,255,0.85);
 }
 
-*{ box-sizing:border-box; }
-html{ scroll-behavior:smooth; }
+*{ box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+html{ scroll-behavior:smooth; -webkit-text-size-adjust:100%; text-size-adjust:100%; }
 body{ margin:0; background:var(--bg); color:var(--ink); font-family:'Newsreader', serif; overflow-x:hidden; }
 
 .grain{
