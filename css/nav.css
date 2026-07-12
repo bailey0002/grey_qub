@@ -1,0 +1,52 @@
+/* ==========================================================================
+   NAV — top bar + hamburger dropdown, shared across every page
+   ========================================================================== */
+
+/* thin animated accent line — a larger, more conspicuous cousin of the
+   hero scrollcue's "drip", run across the very top of every page */
+.topline{
+  position:fixed; top:0; left:0; right:0; height:2px; z-index:300;
+  background:var(--line); overflow:hidden;
+}
+.topline::after{
+  content:''; position:absolute; top:0; left:-35%; width:35%; height:100%;
+  background:linear-gradient(90deg, transparent, var(--accent) 50%, transparent);
+  animation:topline-sweep 3.6s ease-in-out infinite;
+}
+@keyframes topline-sweep{ 0%{ left:-35%; } 65%{ left:100%; } 100%{ left:100%; } }
+
+nav{
+  position:fixed; top:0; left:0; right:0; z-index:200;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:26px 48px; background:linear-gradient(180deg, var(--bg) 55%, transparent);
+}
+.navmark{ display:flex; align-items:center; gap:12px; text-decoration:none; }
+.bars{ width:26px; display:flex; flex-direction:column; gap:4px; cursor:pointer; background:none; border:none; padding:0; }
+.bars span{ display:block; height:2px; background:var(--ink); transition:.25s var(--ease); }
+.bars span:nth-child(1){ width:100%; }
+.bars span:nth-child(2){ width:70%; }
+.bars span:nth-child(3){ width:45%; }
+.navmark .word{ font-family:'Space Grotesk',sans-serif; letter-spacing:.24em; font-size:13px; color:var(--ink); }
+
+.navmenu-wrap{ position:relative; }
+
+.navmenu{
+  position:absolute; top:calc(100% + 14px); left:0; min-width:180px;
+  background:var(--bg-soft); border-radius:14px; box-shadow:var(--shadow-out);
+  padding:10px; display:flex; flex-direction:column; gap:2px;
+  opacity:0; pointer-events:none; transform:translateY(-6px);
+  transition:opacity .25s var(--ease), transform .25s var(--ease);
+}
+.navmenu-wrap.open .navmenu{ opacity:1; pointer-events:auto; transform:translateY(0); }
+.navmenu-wrap.open .bars span:nth-child(2){ width:100%; }
+
+.navmenu a{
+  display:block; padding:10px 14px; border-radius:8px; text-decoration:none;
+  font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:.1em; color:var(--ink);
+  transition:background .2s var(--ease), color .2s var(--ease);
+}
+.navmenu a:hover{ background:var(--accent-soft); color:var(--ink); }
+
+@media (max-width:880px){
+  nav{ padding:20px 22px; }
+}

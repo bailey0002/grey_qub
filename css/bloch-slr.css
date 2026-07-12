@@ -1,0 +1,15 @@
+/* ==========================================================================
+   BLOCH-SLR — page specific layout (minimal / coming soon)
+   ========================================================================== */
+
+.axis-stage{
+  min-height:70svh; display:flex; flex-direction:column; align-items:flex-start; justify-content:center;
+  padding:150px 48px 80px; max-width:920px; margin:0 auto;
+}
+.axis-stage h1{ font-size:clamp(38px, 6vw, 68px); margin:18px 0 20px; }
+.axis-stage p{ color:var(--ink-dim); font-size:16px; line-height:1.75; max-width:600px; }
+.axis-stage .status{ margin-top:28px; }
+
+@media (max-width:880px){
+  .axis-stage{ padding:110px 22px 60px; }
+}

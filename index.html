@@ -3,157 +3,41 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Grey Qub — Mark Exploration</title>
+<title>Grey Qub — Real Expertise. Unreal Intelligence.</title>
+<meta name="description" content="Grey Qub builds automated document intelligence for legal and financial professionals — starting with bloch-NDA and bloch-SLR.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=Newsreader:ital,wght@0,300;0,400;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --ease: cubic-bezier(.16,.8,.24,1);
-    --bg: #f1ede6;
-    --bg-soft: #f7f4ee;
-    --ink: #33322f;
-    --ink-dim: #8b877e;
-    --line: rgba(51,50,47,0.12);
-    --accent: #6f89a3;
-    --accent-soft: rgba(111,137,163,0.22);
-    --card-bg: #fbf9f5;
-    --shadow-out: 0 20px 42px rgba(60,55,45,0.12), 0 1px 0 rgba(255,255,255,0.7) inset;
-    --shadow-in: inset 2px 2px 5px rgba(60,55,45,0.16), inset -2px -2px 5px rgba(255,255,255,0.85);
-  }
-  *{ box-sizing:border-box; }
-  html{ scroll-behavior:smooth; }
-  body{ margin:0; background:var(--bg); color:var(--ink); font-family:'Newsreader', serif; overflow-x:hidden; }
-  .grain{
-    position:fixed; inset:0; pointer-events:none; z-index:999; opacity:.08; mix-blend-mode:multiply;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  }
-  .eyebrow{ font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:.28em; text-transform:uppercase; color:var(--ink-dim); }
-  h1,h2,h3{ font-family:'Space Grotesk', sans-serif; font-weight:300; margin:0; }
-
-  /* ---------- NAV (Stratum pattern, Qub palette) ---------- */
-  nav{
-    position:fixed; top:0; left:0; right:0; z-index:200;
-    display:flex; align-items:center; justify-content:space-between;
-    padding:26px 48px; background:linear-gradient(180deg, var(--bg) 55%, transparent);
-  }
-  .navmark{ display:flex; align-items:center; gap:12px; }
-  .bars{ width:26px; display:flex; flex-direction:column; gap:4px; }
-  .bars span{ display:block; height:2px; background:var(--ink); }
-  .bars span:nth-child(1){ width:100%; }
-  .bars span:nth-child(2){ width:70%; }
-  .bars span:nth-child(3){ width:45%; }
-  .navmark .word{ font-family:'Space Grotesk',sans-serif; letter-spacing:.24em; font-size:13px; color:var(--ink); }
-  .counter{
-    font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase;
-    color:var(--ink-dim); background:var(--bg-soft); padding:8px 16px; border-radius:100px; box-shadow:var(--shadow-out);
-  }
-  .counter b{ color:var(--ink); font-weight:500; }
-
-  /* ---------- HERO (Stratum pattern, Qub content) ---------- */
-  .hero{
-    min-height:100svh; display:grid; grid-template-columns:1.1fr .9fr; align-items:center;
-    padding:0 48px; position:relative;
-  }
-  .hero-copy{ position:relative; z-index:2; }
-  .hero h1{ font-size:clamp(48px, 8vw, 108px); line-height:.96; letter-spacing:.02em; margin:22px 0 8px; }
-  .hero .tagline{
-    font-family:'Newsreader', serif; font-style:italic; font-size:19px; color:var(--ink-dim);
-    max-width:440px; margin-top:18px; line-height:1.5;
-  }
-  .hero .slash{ color:var(--accent); }
-
-  .scrollcue{
-    position:absolute; bottom:42px; left:48px; display:flex; align-items:center; gap:10px;
-    font-family:'IBM Plex Mono', monospace; font-size:10px; letter-spacing:.2em; color:var(--ink-dim);
-  }
-  .scrollcue .stem{ width:1px; height:34px; background:var(--line); position:relative; overflow:hidden; }
-  .scrollcue .stem::after{
-    content:''; position:absolute; top:-100%; left:0; width:100%; height:100%; background:var(--accent);
-    animation:drip 2.2s ease-in-out infinite;
-  }
-  @keyframes drip{ 0%{top:-100%;} 60%{top:100%;} 100%{top:100%;} }
-
-  .stage{ position:relative; height:440px; display:flex; align-items:center; justify-content:center; transition:transform .2s var(--ease); }
-  .stage-tile{
-    width:340px; height:340px; border-radius:16px; background:var(--bg-soft); box-shadow:var(--shadow-out);
-    display:flex; align-items:center; justify-content:center; padding:26px;
-  }
-  .stage-tile svg{ width:100%; height:100%; }
-
-  /* ---------- INTRO ---------- */
-  .intro{ padding:70px 48px 40px; max-width:920px; margin:0 auto; }
-  .intro p.lede{ color:var(--ink-dim); font-size:16px; line-height:1.75; max-width:660px; }
-
-  /* ---------- GRID ---------- */
-  .grid{
-    display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
-    gap:26px; padding:20px 48px 140px; max-width:1500px; margin:0 auto;
-  }
-  .card{
-    background:var(--card-bg); border-radius:12px; padding:28px; box-shadow:var(--shadow-out);
-    border:2px solid transparent; cursor:pointer; transition:transform .3s var(--ease), border-color .3s var(--ease);
-    display:flex; flex-direction:column; gap:20px;
-  }
-  .card.lead{ border-color:var(--accent-soft); }
-  .card:hover{ transform:translateY(-6px); }
-  .card.selected{ border-color:var(--accent); }
-  .card .num{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.14em; color:var(--ink-dim); display:flex; justify-content:space-between; align-items:center; }
-  .check{
-    width:20px; height:20px; border-radius:50%; border:1.5px solid var(--line);
-    display:flex; align-items:center; justify-content:center; font-size:11px; color:transparent;
-    transition:.25s var(--ease);
-  }
-  .card.selected .check{ background:var(--accent); border-color:var(--accent); color:#fff; }
-
-  .icon-tile{
-    aspect-ratio:1; border-radius:10px; background:var(--bg-soft); box-shadow:var(--shadow-in);
-    display:flex; align-items:center; justify-content:center;
-  }
-  .icon-tile svg{ width:58%; height:58%; }
-
-  .card h3{ font-size:22px; letter-spacing:.01em; }
-  .card p{ color:var(--ink-dim); font-size:14.5px; line-height:1.65; margin:0; }
-
-  .lockup{ display:flex; align-items:center; gap:12px; padding-top:14px; border-top:1px solid var(--line); }
-  .lockup .mini-icon{ width:30px; height:30px; }
-  .lockup .word{ font-family:'Space Grotesk',sans-serif; font-size:13px; letter-spacing:.18em; }
-
-  .tagchip{
-    align-self:flex-start; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.06em;
-    color:var(--accent); border:1px solid var(--accent-soft); padding:6px 12px; border-radius:100px;
-  }
-
-  footer{ max-width:920px; margin:0 auto; padding:0 48px 120px; text-align:left; }
-  footer p{ color:var(--ink-dim); font-size:15px; line-height:1.7; }
-  footer .eyebrow{ display:block; margin-bottom:14px; }
-
-  @media (max-width:880px){
-    nav{ padding:20px 22px; }
-    .hero{ grid-template-columns:1fr; padding:110px 22px 60px; text-align:left; }
-    .stage{ height:280px; margin-top:16px; }
-    .stage-tile{ width:240px; height:240px; }
-    .intro{ padding:50px 22px 30px; }
-    .grid{ padding:10px 22px 100px; }
-    footer{ padding:0 22px 90px; }
-  }
-</style>
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/nav.css">
+<link rel="stylesheet" href="css/hero.css">
+<link rel="stylesheet" href="css/cards.css">
+<link rel="stylesheet" href="css/buttons.css">
+<link rel="stylesheet" href="css/footer.css">
+<link rel="stylesheet" href="css/landing.css">
 </head>
 <body>
 <div class="grain"></div>
+<div class="topline"></div>
 
 <nav>
-  <div class="navmark">
+  <a class="navmark" href="index.html">
     <div class="bars"><span></span><span></span><span></span></div>
     <div class="word">GREY QUB</div>
+  </a>
+  <div class="navmenu-wrap">
+    <div class="navmenu">
+      <a href="index.html#blochs">/blochs</a>
+      <a href="bloch-slr.html">/axis</a>
+      <a href="contact.html">/contact</a>
+    </div>
   </div>
-  <div class="counter" id="counter"><b>0</b> of 5 flagged</div>
 </nav>
 
 <section class="hero">
   <div class="hero-copy">
-    <span class="eyebrow">Identity exploration — quantum computing division</span>
-    <h1>GREY<br>QUB</h1>
+    <span class="eyebrow">/building blochs.</span>
+    <h1>Real Expertise.<br>Unreal Intelligence.</h1>
     <p class="tagline"><span class="slash">/</span> Both, until observed.</p>
   </div>
   <div class="stage" id="stage">
@@ -179,15 +63,15 @@
   <div class="scrollcue"><div class="stem"></div>SCROLL</div>
 </section>
 
-<div class="intro">
-  <span class="eyebrow">Five directions, one leading</span>
-  <p class="lede">A sibling mark to Grey Stratum, built for a quantum computing lab. Where Stratum conceals a second layer, Qub holds two states at once — resolving only when someone chooses to look. The Bloch Axis study below is the strongest of the set so far; the rest remain open. Click any tile to flag it.</p>
+<div class="section-title" id="blochs">
+  <span class="eyebrow">/blochs</span>
+  <p class="lede">Automated document intelligence for professionals.</p>
 </div>
 
-<div class="grid" id="grid">
+<div class="grid">
 
-  <div class="card lead" data-name="Bloch Axis — Building Bloch">
-    <div class="num"><span>01 — Bloch Axis · The Bernoulli Line</span><span class="check">✓</span></div>
+  <a class="card lead card-link" href="bloch-nda.html" style="text-decoration:none; color:inherit;">
+    <div class="num"><span>01 — bloch-NDA</span><span class="pill">Live</span></div>
     <div class="icon-tile">
       <svg viewBox="0 0 230 230" fill="none">
         <circle cx="115" cy="115" r="55" stroke="var(--ink)" stroke-width="1" opacity="0.35"/>
@@ -206,8 +90,8 @@
         <circle cx="115" cy="115" r="3" fill="var(--ink)"/>
       </svg>
     </div>
-    <h3>Bloch Axis</h3>
-    <p>The sphere stays thin, and the cube around it thinner still — twelve edges, all set back. Only one line is drawn with intent: the cube's own diagonal, doubling as the state vector, outside the sphere at both ends and inside it through the center.</p>
+    <h3>bloch-NDA</h3>
+    <p>NDAs. Non-reliance letters. Benchmarked against market standards, 3P NDAs reviewed, analyzed and remediated in less &lt;5 mins.</p>
     <div class="lockup">
       <svg class="mini-icon" viewBox="0 0 230 230" fill="none">
         <circle cx="115" cy="115" r="55" stroke="var(--ink)" stroke-width="1.4" opacity="0.4"/>
@@ -223,61 +107,10 @@
       </svg>
       <span class="word">GREY QUB</span>
     </div>
-    <span class="tagchip">"One Bloch at a time."</span>
-  </div>
+  </a>
 
-  <div class="card" data-name="Superposition Lens">
-    <div class="num"><span>02 — Superposition Lens</span><span class="check">✓</span></div>
-    <div class="icon-tile">
-      <svg viewBox="0 0 120 120" fill="none">
-        <circle cx="45" cy="60" r="30" fill="var(--accent)" opacity="0.4" style="mix-blend-mode:multiply"/>
-        <circle cx="75" cy="60" r="30" fill="var(--accent)" opacity="0.4" style="mix-blend-mode:multiply"/>
-        <circle cx="45" cy="60" r="30" stroke="var(--ink)" stroke-width="1.6"/>
-        <circle cx="75" cy="60" r="30" stroke="var(--ink)" stroke-width="1.6"/>
-      </svg>
-    </div>
-    <h3>Superposition Lens</h3>
-    <p>Two identical circles, offset just enough to overlap. The lens between them — neither fully one nor the other — is the only place given color.</p>
-    <div class="lockup">
-      <svg class="mini-icon" viewBox="0 0 120 120" fill="none">
-        <circle cx="45" cy="60" r="30" fill="var(--accent)" opacity="0.4" style="mix-blend-mode:multiply"/>
-        <circle cx="75" cy="60" r="30" fill="var(--accent)" opacity="0.4" style="mix-blend-mode:multiply"/>
-        <circle cx="45" cy="60" r="30" stroke="var(--ink)" stroke-width="2.5"/>
-        <circle cx="75" cy="60" r="30" stroke="var(--ink)" stroke-width="2.5"/>
-      </svg>
-      <span class="word">GREY QUB</span>
-    </div>
-    <span class="tagchip">"Both, until observed."</span>
-  </div>
-
-  <div class="card" data-name="Ledger Bars">
-    <div class="num"><span>03 — Ledger Bars (family mark)</span><span class="check">✓</span></div>
-    <div class="icon-tile">
-      <svg viewBox="0 0 120 120" fill="none">
-        <rect x="24" y="26" width="72" height="8" rx="2" fill="var(--accent)" opacity="0.5"/>
-        <rect x="24" y="34" width="72" height="8" rx="2" fill="var(--ink)"/>
-        <rect x="24" y="58" width="50" height="8" rx="2" fill="var(--ink)"/>
-        <rect x="24" y="82" width="30" height="8" rx="2" fill="var(--ink)"/>
-        <rect x="66" y="82" width="30" height="8" rx="2" fill="var(--ink)"/>
-      </svg>
-    </div>
-    <h3>Ledger Bars</h3>
-    <p>The clearest lineage to Grey Stratum's mark — the same settling bars, except the top register hasn't settled yet. It's drawn twice, faintly out of phase with itself.</p>
-    <div class="lockup">
-      <svg class="mini-icon" viewBox="0 0 120 120" fill="none">
-        <rect x="24" y="24" width="72" height="9" rx="2" fill="var(--accent)" opacity="0.5"/>
-        <rect x="24" y="33" width="72" height="9" rx="2" fill="var(--ink)"/>
-        <rect x="24" y="58" width="50" height="9" rx="2" fill="var(--ink)"/>
-        <rect x="24" y="83" width="30" height="9" rx="2" fill="var(--ink)"/>
-        <rect x="66" y="83" width="30" height="9" rx="2" fill="var(--ink)"/>
-      </svg>
-      <span class="word">GREY QUB</span>
-    </div>
-    <span class="tagchip">"Not yet settled."</span>
-  </div>
-
-  <div class="card" data-name="Entangled Pair">
-    <div class="num"><span>04 — Entangled Pair</span><span class="check">✓</span></div>
+  <div class="card card-inactive">
+    <div class="num"><span>02 — bloch-SLR</span><span class="pill">Coming soon</span></div>
     <div class="icon-tile">
       <svg viewBox="0 0 120 120" fill="none">
         <ellipse cx="60" cy="60" rx="40" ry="18" stroke="var(--ink)" stroke-width="1.4" transform="rotate(-18 60 60)" opacity="0.7"/>
@@ -285,8 +118,8 @@
         <circle cx="23" cy="73" r="6" fill="var(--accent)"/>
       </svg>
     </div>
-    <h3>Entangled Pair</h3>
-    <p>Two points held on a single unbroken line. Move one and, by construction, the other has already moved.</p>
+    <h3>bloch-SLR</h3>
+    <p>Syndicated loan reviews for co-lenders. Your credit approval, market standards, any credit agreement.</p>
     <div class="lockup">
       <svg class="mini-icon" viewBox="0 0 120 120" fill="none">
         <ellipse cx="60" cy="60" rx="40" ry="18" stroke="var(--ink)" stroke-width="2.2" transform="rotate(-18 60 60)" opacity="0.7"/>
@@ -295,55 +128,23 @@
       </svg>
       <span class="word">GREY QUB</span>
     </div>
-    <span class="tagchip">"Distance doesn't apply."</span>
-  </div>
-
-  <div class="card" data-name="Interference Field">
-    <div class="num"><span>05 — Interference Field</span><span class="check">✓</span></div>
-    <div class="icon-tile">
-      <svg viewBox="0 0 120 120" fill="none">
-        <circle cx="48" cy="60" r="10" stroke="var(--ink)" stroke-width="1.2" opacity="0.8"/>
-        <circle cx="48" cy="60" r="20" stroke="var(--ink)" stroke-width="1.2" opacity="0.55"/>
-        <circle cx="48" cy="60" r="30" stroke="var(--ink)" stroke-width="1.2" opacity="0.3"/>
-        <circle cx="72" cy="60" r="10" stroke="var(--accent)" stroke-width="1.2" opacity="0.8"/>
-        <circle cx="72" cy="60" r="20" stroke="var(--accent)" stroke-width="1.2" opacity="0.55"/>
-        <circle cx="72" cy="60" r="30" stroke="var(--accent)" stroke-width="1.2" opacity="0.3"/>
-      </svg>
-    </div>
-    <h3>Interference Field</h3>
-    <p>Two wave fronts drawn slightly out of register. Where they meet in phase, the mark reads brightest — an amplitude, not a boundary.</p>
-    <div class="lockup">
-      <svg class="mini-icon" viewBox="0 0 120 120" fill="none">
-        <circle cx="48" cy="60" r="10" stroke="var(--ink)" stroke-width="2" opacity="0.8"/>
-        <circle cx="48" cy="60" r="20" stroke="var(--ink)" stroke-width="2" opacity="0.55"/>
-        <circle cx="72" cy="60" r="10" stroke="var(--accent)" stroke-width="2" opacity="0.8"/>
-        <circle cx="72" cy="60" r="20" stroke="var(--accent)" stroke-width="2" opacity="0.55"/>
-      </svg>
-      <span class="word">GREY QUB</span>
-    </div>
-    <span class="tagchip">"Where two waves agree."</span>
   </div>
 
 </div>
 
 <footer>
-  <span class="eyebrow">A note on the accent</span>
-  <p>Everything here keeps Stratum's paper, ink, and card language exactly as-is — only the accent shifts, from Stratum's warm brass to a cooler ice-blue, so the two marks read as siblings under one house rather than twins. Flag whichever direction(s) you want carried into the full site next.</p>
+  <div class="foot-inner">
+    <p>Grey Qub — automated document intelligence for legal and financial professionals.</p>
+    <div class="foot-links">
+      <a href="index.html#blochs">/blochs</a>
+      <a href="bloch-slr.html">/axis</a>
+      <a href="contact.html">/contact</a>
+    </div>
+  </div>
 </footer>
 
+<script src="js/nav.js"></script>
 <script>
-  const counter = document.getElementById('counter');
-  const selected = new Set();
-  document.querySelectorAll('.card').forEach(card => {
-    card.addEventListener('click', () => {
-      const name = card.getAttribute('data-name');
-      card.classList.toggle('selected');
-      if (selected.has(name)) selected.delete(name); else selected.add(name);
-      counter.innerHTML = '<b>' + selected.size + '</b> of 5 flagged';
-    });
-  });
-
-  // subtle cursor parallax on hero stage, matching the Stratum hero
   const stage = document.getElementById('stage');
   stage.addEventListener('mousemove', (e) => {
     const r = stage.getBoundingClientRect();

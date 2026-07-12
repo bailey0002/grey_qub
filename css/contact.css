@@ -1,0 +1,27 @@
+/* ==========================================================================
+   CONTACT — page specific layout
+   ========================================================================== */
+
+.contact-frame{ padding:0 48px 120px; max-width:640px; margin:0 auto; }
+
+.contact-card{
+  background:var(--card-bg); border-radius:16px; padding:36px; box-shadow:var(--shadow-out);
+  display:flex; flex-direction:column; gap:18px;
+}
+.contact-card label{ font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-dim); }
+.contact-card input, .contact-card textarea{
+  width:100%; margin-top:8px; padding:14px 16px; border-radius:10px; border:1px solid var(--line);
+  background:var(--bg-soft); box-shadow:var(--shadow-in); font-family:'Newsreader', serif; font-size:15px;
+  color:var(--ink); resize:vertical;
+}
+.contact-card input:focus, .contact-card textarea:focus{ outline:none; border-color:var(--accent); }
+.contact-card textarea{ min-height:140px; }
+
+.contact-direct{ margin-top:26px; display:flex; flex-direction:column; gap:6px; }
+.contact-direct a{ color:var(--accent); text-decoration:none; font-family:'IBM Plex Mono', monospace; font-size:14px; }
+.contact-direct a:hover{ text-decoration:underline; }
+
+@media (max-width:880px){
+  .contact-frame{ padding:0 22px 90px; }
+  .contact-card{ padding:26px; }
+}
