@@ -10,8 +10,8 @@
 }
 .topline::after{
   content:''; position:absolute; top:0; left:-35%; width:35%; height:100%;
-  background:linear-gradient(90deg, transparent, var(--accent) 50%, transparent);
-  animation:topline-sweep 3.6s ease-in-out infinite;
+  background:linear-gradient(90deg, transparent, var(--sweep-color) 50%, transparent);
+  animation:topline-sweep 7s ease-in-out infinite;
 }
 @keyframes topline-sweep{ 0%{ left:-35%; } 65%{ left:100%; } 100%{ left:100%; } }
 
@@ -20,7 +20,9 @@ nav{
   display:flex; align-items:center; justify-content:space-between;
   padding:calc(26px + env(safe-area-inset-top, 0px)) calc(48px + env(safe-area-inset-right, 0px)) 26px calc(48px + env(safe-area-inset-left, 0px));
   background:linear-gradient(180deg, var(--bg) 55%, transparent);
+  transition:background .5s var(--ease);
 }
+.nav-right{ display:flex; align-items:center; gap:14px; }
 .navmark{ display:flex; align-items:center; gap:12px; text-decoration:none; }
 .bars{
   width:44px; height:44px; padding:9px; box-sizing:border-box;
@@ -41,9 +43,26 @@ nav{
 }
 .wordline::after{
   content:''; position:absolute; top:0; left:-35%; width:35%; height:100%;
-  background:linear-gradient(90deg, transparent, var(--accent) 50%, transparent);
-  animation:topline-sweep 3.6s ease-in-out infinite;
+  background:linear-gradient(90deg, transparent, var(--sweep-color) 50%, transparent);
+  animation:topline-sweep 7s ease-in-out infinite;
 }
+
+/* light/dark theme toggle — kept quiet: an icon-weight track+knob with no
+   label or card chrome, sized to the same 44x44 tap target as .bars */
+.theme-toggle{
+  width:44px; height:44px; padding:0; box-sizing:border-box;
+  display:flex; align-items:center; justify-content:center;
+  background:none; border:none; cursor:pointer;
+}
+.theme-toggle .track{
+  width:28px; height:15px; border-radius:100px; background:var(--bg-soft); box-shadow:var(--shadow-in);
+  position:relative; transition:background .3s var(--ease);
+}
+.theme-toggle .knob{
+  position:absolute; top:2px; left:2px; width:11px; height:11px; border-radius:50%;
+  background:var(--ink-dim); transition:transform .35s var(--ease), background .3s var(--ease);
+}
+:root[data-theme="dark"] .theme-toggle .knob{ transform:translateX(13px); }
 
 .navmenu-wrap{ position:relative; }
 
@@ -52,7 +71,7 @@ nav{
   background:var(--bg-soft); border-radius:14px; box-shadow:var(--shadow-out);
   padding:10px; display:flex; flex-direction:column; gap:2px;
   opacity:0; pointer-events:none; transform:translateY(-6px);
-  transition:opacity .25s var(--ease), transform .25s var(--ease);
+  transition:opacity .25s var(--ease), transform .25s var(--ease), background .5s var(--ease);
 }
 .navmenu-wrap.open .navmenu{ opacity:1; pointer-events:auto; transform:translateY(0); }
 .navmenu-wrap.open .bars span:nth-child(2){ width:100%; }

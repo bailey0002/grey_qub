@@ -15,16 +15,40 @@
   --card-bg: #fbf9f5;
   --shadow-out: 0 20px 42px rgba(60,55,45,0.12), 0 1px 0 rgba(255,255,255,0.7) inset;
   --shadow-in: inset 2px 2px 5px rgba(60,55,45,0.16), inset -2px -2px 5px rgba(255,255,255,0.85);
+  /* sweep highlight (topline/wordline) — a quiet neutral, not the accent,
+     so the motion reads as a soft glint rather than a colored effect */
+  --sweep-color: rgba(255,255,255,0.75);
+}
+
+/* dark theme — same tokens, warm-neutral inversion (not pure black/white),
+   accent brightened slightly so it still reads against the darker ground.
+   Applied via [data-theme="dark"] on <html>, set by js/theme.js. */
+:root[data-theme="dark"]{
+  --bg: #1b1917;
+  --bg-soft: #232019;
+  --ink: #f1ede6;
+  --ink-dim: #a39c8f;
+  --line: rgba(241,237,230,0.12);
+  --accent: #89a8c9;
+  --accent-soft: rgba(137,168,201,0.22);
+  --card-bg: #262320;
+  --shadow-out: 0 20px 42px rgba(0,0,0,0.45), 0 1px 0 rgba(255,255,255,0.04) inset;
+  --shadow-in: inset 2px 2px 5px rgba(0,0,0,0.5), inset -2px -2px 5px rgba(255,255,255,0.05);
+  --sweep-color: rgba(0,0,0,0.55);
 }
 
 *{ box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
 html{ scroll-behavior:smooth; -webkit-text-size-adjust:100%; text-size-adjust:100%; }
-body{ margin:0; background:var(--bg); color:var(--ink); font-family:'Newsreader', serif; overflow-x:hidden; }
+body{
+  margin:0; background:var(--bg); color:var(--ink); font-family:'Newsreader', serif; overflow-x:hidden;
+  transition:background .5s var(--ease), color .5s var(--ease);
+}
 
 .grain{
   position:fixed; inset:0; pointer-events:none; z-index:999; opacity:.08; mix-blend-mode:multiply;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
+:root[data-theme="dark"] .grain{ mix-blend-mode:overlay; opacity:.14; }
 
 .eyebrow{ font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:.28em; text-transform:uppercase; color:var(--ink-dim); }
 h1,h2,h3{ font-family:'Space Grotesk', sans-serif; font-weight:300; margin:0; }
