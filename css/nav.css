@@ -20,7 +20,9 @@ nav{
   display:flex; align-items:center; justify-content:space-between;
   padding:calc(26px + env(safe-area-inset-top, 0px)) calc(48px + env(safe-area-inset-right, 0px)) 26px calc(48px + env(safe-area-inset-left, 0px));
   background:linear-gradient(180deg, var(--bg) 55%, transparent);
+  transition:background .5s var(--ease);
 }
+.nav-right{ display:flex; align-items:center; gap:14px; }
 .navmark{ display:flex; align-items:center; gap:12px; text-decoration:none; }
 .bars{
   width:44px; height:44px; padding:9px; box-sizing:border-box;
@@ -45,6 +47,26 @@ nav{
   animation:topline-sweep 3.6s ease-in-out infinite;
 }
 
+/* light/dark theme toggle — a track+knob switch matching the pill language
+   used elsewhere (tagchip/pill), lives in .nav-right next to the hamburger */
+.theme-toggle{
+  display:flex; align-items:center; gap:9px; font-family:'IBM Plex Mono',monospace; font-size:10px;
+  letter-spacing:.12em; text-transform:uppercase; color:var(--ink-dim);
+  background:var(--card-bg); border-radius:100px; padding:8px 8px 8px 14px; box-shadow:var(--shadow-out);
+  border:none; cursor:pointer; transition:background .3s var(--ease), box-shadow .3s var(--ease);
+}
+.theme-toggle .theme-label{ min-width:30px; text-align:left; }
+.theme-toggle .track{
+  width:32px; height:17px; border-radius:100px; background:var(--bg-soft); box-shadow:var(--shadow-in);
+  position:relative; transition:background .3s var(--ease); flex-shrink:0;
+}
+.theme-toggle .knob{
+  position:absolute; top:2px; left:2px; width:13px; height:13px; border-radius:50%;
+  background:var(--accent); transition:transform .35s var(--ease), background .3s var(--ease);
+  box-shadow:0 1px 3px rgba(0,0,0,.3);
+}
+:root[data-theme="dark"] .theme-toggle .knob{ transform:translateX(15px); }
+
 .navmenu-wrap{ position:relative; }
 
 .navmenu{
@@ -52,7 +74,7 @@ nav{
   background:var(--bg-soft); border-radius:14px; box-shadow:var(--shadow-out);
   padding:10px; display:flex; flex-direction:column; gap:2px;
   opacity:0; pointer-events:none; transform:translateY(-6px);
-  transition:opacity .25s var(--ease), transform .25s var(--ease);
+  transition:opacity .25s var(--ease), transform .25s var(--ease), background .5s var(--ease);
 }
 .navmenu-wrap.open .navmenu{ opacity:1; pointer-events:auto; transform:translateY(0); }
 .navmenu-wrap.open .bars span:nth-child(2){ width:100%; }

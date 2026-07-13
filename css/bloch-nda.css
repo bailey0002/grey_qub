@@ -13,6 +13,7 @@
 .preview-box{
   aspect-ratio:16/9; border-radius:16px; background:var(--bg-soft); box-shadow:var(--shadow-in);
   display:flex; align-items:center; justify-content:center; flex-direction:column; gap:10px;
+  transition:background .5s var(--ease);
 }
 .preview-box .eyebrow{ color:var(--ink-dim); }
 .preview-box .glyph{ width:52px; height:52px; opacity:.5; }

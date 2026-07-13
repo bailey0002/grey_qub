@@ -12,7 +12,8 @@
 
 .card{
   background:var(--card-bg); border-radius:12px; padding:28px; box-shadow:var(--shadow-out);
-  border:2px solid transparent; transition:transform .3s var(--ease), border-color .3s var(--ease);
+  border:2px solid transparent;
+  transition:transform .3s var(--ease), border-color .3s var(--ease), background .5s var(--ease);
   display:flex; flex-direction:column; gap:16px;
 }
 .card.lead{ border-color:var(--accent-soft); }
@@ -33,7 +34,7 @@
 /* metric cards */
 .metric-card{
   background:var(--card-bg); border-radius:12px; padding:34px 28px; box-shadow:var(--shadow-out);
-  text-align:left;
+  text-align:left; transition:background .5s var(--ease);
 }
 .metric-card .metric-num{ font-family:'Space Grotesk', sans-serif; font-weight:300; font-size:clamp(28px,4vw,42px); color:var(--ink); line-height:1.05; }
 .metric-card .metric-label{ margin-top:10px; font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:.1em; color:var(--ink-dim); }
@@ -41,6 +42,7 @@
 /* feature / differentiation cards */
 .feature-card{
   background:var(--bg-soft); border-radius:12px; padding:26px; box-shadow:var(--shadow-in);
+  transition:background .5s var(--ease);
 }
 .feature-card h3{ font-size:18px; margin-bottom:8px; }
 .feature-card p{ color:var(--ink-dim); font-size:14px; line-height:1.6; margin:0; }

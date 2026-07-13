@@ -3,7 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="theme-color" content="#f1ede6">
+<meta name="theme-color" content="#f1ede6" id="themeColorMeta">
+<script>
+(function(){
+  try{
+    var stored = localStorage.getItem('gq-theme');
+    var theme = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', theme);
+    document.getElementById('themeColorMeta').setAttribute('content', theme === 'dark' ? '#1b1917' : '#f1ede6');
+  }catch(e){}
+})();
+</script>
 <title>Grey Qub — Real Expertise. Unreal Intelligence.</title>
 <meta name="description" content="Grey Qub builds automated document intelligence for legal and financial professionals — starting with bloch-NDA and bloch-SLR.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,12 +43,18 @@
       <div class="wordline" aria-hidden="true"></div>
     </div>
   </a>
-  <div class="navmenu-wrap">
-    <button class="bars" type="button" aria-label="Toggle menu"><span></span><span></span><span></span></button>
-    <div class="navmenu">
-      <a href="index.html#blochs">/blochs</a>
-      <a href="bloch-slr.html">/axis</a>
-      <a href="contact.html">/contact</a>
+  <div class="nav-right">
+    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark theme" aria-pressed="false">
+      <span class="theme-label" id="themeLabel">Light</span>
+      <span class="track"><span class="knob"></span></span>
+    </button>
+    <div class="navmenu-wrap">
+      <button class="bars" type="button" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+      <div class="navmenu">
+        <a href="index.html#blochs">/blochs</a>
+        <a href="bloch-slr.html">/axis</a>
+        <a href="contact.html">/contact</a>
+      </div>
     </div>
   </div>
 </nav>
@@ -50,7 +66,8 @@
     <p class="tagline"><span class="slash">/</span> Both, until observed.</p>
   </div>
   <div class="stage" id="stage">
-    <div class="stage-tile">
+    <div class="qub-sphere" id="qub-sphere" hidden></div>
+    <div class="stage-tile" id="stageFallback">
       <svg viewBox="0 0 230 230" fill="none">
         <circle cx="115" cy="115" r="55" stroke="var(--ink)" stroke-width="1" opacity="0.35"/>
         <ellipse cx="115" cy="115" rx="55" ry="15" stroke="var(--ink)" stroke-width="0.8" opacity="0.22"/>
@@ -153,6 +170,8 @@
 </footer>
 
 <script src="js/nav.js"></script>
+<script src="js/theme.js"></script>
+<script type="module" src="js/qub-sphere.js"></script>
 <script>
   const stage = document.getElementById('stage');
   stage.addEventListener('mousemove', (e) => {
