@@ -10,8 +10,8 @@
 }
 .topline::after{
   content:''; position:absolute; top:0; left:-35%; width:35%; height:100%;
-  background:linear-gradient(90deg, transparent, var(--accent) 50%, transparent);
-  animation:topline-sweep 3.6s ease-in-out infinite;
+  background:linear-gradient(90deg, transparent, var(--sweep-color) 50%, transparent);
+  animation:topline-sweep 7s ease-in-out infinite;
 }
 @keyframes topline-sweep{ 0%{ left:-35%; } 65%{ left:100%; } 100%{ left:100%; } }
 
@@ -43,29 +43,26 @@ nav{
 }
 .wordline::after{
   content:''; position:absolute; top:0; left:-35%; width:35%; height:100%;
-  background:linear-gradient(90deg, transparent, var(--accent) 50%, transparent);
-  animation:topline-sweep 3.6s ease-in-out infinite;
+  background:linear-gradient(90deg, transparent, var(--sweep-color) 50%, transparent);
+  animation:topline-sweep 7s ease-in-out infinite;
 }
 
-/* light/dark theme toggle — a track+knob switch matching the pill language
-   used elsewhere (tagchip/pill), lives in .nav-right next to the hamburger */
+/* light/dark theme toggle — kept quiet: an icon-weight track+knob with no
+   label or card chrome, sized to the same 44x44 tap target as .bars */
 .theme-toggle{
-  display:flex; align-items:center; gap:9px; font-family:'IBM Plex Mono',monospace; font-size:10px;
-  letter-spacing:.12em; text-transform:uppercase; color:var(--ink-dim);
-  background:var(--card-bg); border-radius:100px; padding:8px 8px 8px 14px; box-shadow:var(--shadow-out);
-  border:none; cursor:pointer; transition:background .3s var(--ease), box-shadow .3s var(--ease);
+  width:44px; height:44px; padding:0; box-sizing:border-box;
+  display:flex; align-items:center; justify-content:center;
+  background:none; border:none; cursor:pointer;
 }
-.theme-toggle .theme-label{ min-width:30px; text-align:left; }
 .theme-toggle .track{
-  width:32px; height:17px; border-radius:100px; background:var(--bg-soft); box-shadow:var(--shadow-in);
-  position:relative; transition:background .3s var(--ease); flex-shrink:0;
+  width:28px; height:15px; border-radius:100px; background:var(--bg-soft); box-shadow:var(--shadow-in);
+  position:relative; transition:background .3s var(--ease);
 }
 .theme-toggle .knob{
-  position:absolute; top:2px; left:2px; width:13px; height:13px; border-radius:50%;
-  background:var(--accent); transition:transform .35s var(--ease), background .3s var(--ease);
-  box-shadow:0 1px 3px rgba(0,0,0,.3);
+  position:absolute; top:2px; left:2px; width:11px; height:11px; border-radius:50%;
+  background:var(--ink-dim); transition:transform .35s var(--ease), background .3s var(--ease);
 }
-:root[data-theme="dark"] .theme-toggle .knob{ transform:translateX(15px); }
+:root[data-theme="dark"] .theme-toggle .knob{ transform:translateX(13px); }
 
 .navmenu-wrap{ position:relative; }
 

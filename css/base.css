@@ -15,6 +15,9 @@
   --card-bg: #fbf9f5;
   --shadow-out: 0 20px 42px rgba(60,55,45,0.12), 0 1px 0 rgba(255,255,255,0.7) inset;
   --shadow-in: inset 2px 2px 5px rgba(60,55,45,0.16), inset -2px -2px 5px rgba(255,255,255,0.85);
+  /* sweep highlight (topline/wordline) — a quiet neutral, not the accent,
+     so the motion reads as a soft glint rather than a colored effect */
+  --sweep-color: rgba(255,255,255,0.75);
 }
 
 /* dark theme — same tokens, warm-neutral inversion (not pure black/white),
@@ -31,6 +34,7 @@
   --card-bg: #262320;
   --shadow-out: 0 20px 42px rgba(0,0,0,0.45), 0 1px 0 rgba(255,255,255,0.04) inset;
   --shadow-in: inset 2px 2px 5px rgba(0,0,0,0.5), inset -2px -2px 5px rgba(255,255,255,0.05);
+  --sweep-color: rgba(0,0,0,0.55);
 }
 
 *{ box-sizing:border-box; -webkit-tap-highlight-color:transparent; }

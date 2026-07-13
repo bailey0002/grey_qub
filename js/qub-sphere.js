@@ -22,8 +22,13 @@
   let renderer;
   try {
     const scene = new THREE.Scene();
+    // Camera sits back further than the tightest fit around the cube's
+    // corners (radius sqrt(3) at fov 32deg) so the silhouette never
+    // clips the frame as the whole group spins about the diagonal axis
+    // — the projected extent varies with orientation since the camera
+    // doesn't look straight down that axis.
     const camera = new THREE.PerspectiveCamera(32, 1, 0.1, 100);
-    camera.position.set(0, 0, 6.2);
+    camera.position.set(0, 0, 7.6);
     camera.lookAt(0, 0, 0);
 
     renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });

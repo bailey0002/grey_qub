@@ -4,12 +4,10 @@
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.documentElement;
   const toggle = document.getElementById('themeToggle');
-  const label = document.getElementById('themeLabel');
   if (!toggle) return;
 
   function reflect() {
     const dark = root.getAttribute('data-theme') === 'dark';
-    if (label) label.textContent = dark ? 'Dark' : 'Light';
     toggle.setAttribute('aria-pressed', String(dark));
   }
 
