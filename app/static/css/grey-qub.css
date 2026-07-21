@@ -127,10 +127,6 @@ h1,h2,h3,h4,.modal-header h2,.sidebar-header h2,.type-name,.result-header,
 .header-brand{
   font-family:var(--font-heading); background:none; border:none; padding:0; gap:12px; align-items:center;
 }
-.header-brand::before{ /* Bloch-axis mini mark */
-  content:''; width:26px; height:26px; flex:none;
-  background:url("../../assets/mark.svg") center/contain no-repeat;
-}
 .brand-nda{ font-family:var(--font-heading); font-weight:300; font-size:19px; letter-spacing:.01em; color:var(--color-text); }
 .brand-plus{ font-family:var(--font-heading); color:var(--color-accent); font-weight:500; font-size:19px; margin-left:0; }
 .brand-separator{ background-color:var(--color-border); height:16px; }
@@ -202,3 +198,63 @@ h1,h2,h3,h4,.modal-header h2,.sidebar-header h2,.type-name,.result-header,
 *::-webkit-scrollbar-thumb{ background:var(--scrollbar-thumb); border-radius:100px; }
 *::-webkit-scrollbar-thumb:hover{ background:var(--scrollbar-thumb-hover); }
 *::-webkit-scrollbar-track{ background:transparent; }
+
+/* ==========================================================================
+   REFINEMENTS
+   ========================================================================== */
+
+/* (1) Flip the header lockup → GREY QUB · bloch-NDA (bloch-NDA right of the
+   divider). The leading mark is dropped; the live sphere at far right now
+   carries the Bloch mark. */
+.brand-concordia{ order:1; }
+.brand-separator{ order:2; }
+.brand-nda{ order:3; }
+.brand-plus{ order:3; }
+
+/* (2) Swap the far-right backend tri-bars for a slowly rotating Bloch sphere,
+   reading as a live "system running" indicator. */
+.status-tribars .tribars-loader{ display:none; }
+.status-tribars::before{
+  content:''; width:22px; height:22px; display:inline-block; flex:none;
+  background:url("../../assets/spin.svg") center/contain no-repeat;
+  animation:gq-orbit 6s linear infinite; transform-origin:50% 50%;
+}
+.status-tribars.checking::before{ animation-duration:1.6s; }
+.status-tribars.error::before,.status-tribars.disconnected::before{ opacity:.55; animation-play-state:paused; }
+@keyframes gq-orbit{ to{ transform:rotate(360deg); } }
+@media (prefers-reduced-motion:reduce){ .status-tribars::before{ animation:none; } }
+
+/* (3) Soft, tactile pill buttons (New Document / Analyze) — the website's
+   raised-CTA feel. */
+.btn{ padding:11px 22px; box-shadow:var(--shadow-out); }
+.btn-primary{ background:var(--color-text); color:var(--color-bg); box-shadow:var(--shadow-out); }
+.btn-primary:hover:not(:disabled){ background:var(--color-accent); color:var(--color-bg); transform:translateY(-2px); box-shadow:var(--shadow-lg); }
+.btn-secondary{ background:var(--color-surface); color:var(--color-text); border:1px solid var(--color-border-light); box-shadow:var(--shadow-out); }
+.btn-secondary:hover:not(:disabled){ background:var(--color-surface); border-color:var(--color-accent); color:var(--color-accent); transform:translateY(-2px); box-shadow:var(--shadow-lg); }
+.btn:disabled{ box-shadow:var(--shadow-sm); opacity:.5; transform:none; }
+
+/* (4) Theme switch as a physical button: raised (up) in light, pressed-in
+   (inset) in dark, with a fully opaque icon. */
+.theme-toggle{
+  width:38px; height:38px; border-radius:50%; border:1px solid var(--color-border-light);
+  background:var(--color-surface); color:var(--color-text); box-shadow:var(--shadow-out);
+  transition:box-shadow .3s var(--ease),transform .15s var(--ease),background .3s var(--ease),color .3s var(--ease);
+}
+.theme-toggle svg{ opacity:1; }
+.theme-toggle:hover{ color:var(--color-accent); border-color:var(--color-accent); transform:translateY(-1px); }
+.theme-toggle:active{ transform:translateY(1px); }
+[data-theme=dark] .theme-toggle{ background:var(--color-bg-soft); box-shadow:var(--shadow-in); border-color:var(--color-border-subtle); }
+[data-theme=dark] .theme-toggle:hover{ box-shadow:var(--shadow-in); transform:none; color:var(--color-accent); }
+
+/* (5) Document viewer as paper on a warm mat — soft, layered border/shadow. */
+.document-container{ background:var(--color-bg-soft); padding:28px; }
+[data-theme=light] .document-container{ background:var(--color-bg-soft); }
+.document-content{
+  background:var(--doc-bg); color:var(--doc-text); border-radius:12px;
+  border:1px solid var(--color-border-light);
+  box-shadow:0 1px 0 rgba(255,255,255,0.6) inset, 0 2px 6px rgba(60,55,45,0.08), 0 22px 46px rgba(60,55,45,0.16);
+}
+[data-theme=light] .document-content{
+  border:1px solid rgba(51,50,47,0.10);
+  box-shadow:0 1px 0 rgba(255,255,255,0.7) inset, 0 2px 6px rgba(60,55,45,0.06), 0 20px 44px rgba(60,55,45,0.12);
+}
