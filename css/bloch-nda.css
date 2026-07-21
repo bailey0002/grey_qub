@@ -17,6 +17,13 @@
 }
 .preview-box .eyebrow{ color:var(--ink-dim); }
 .preview-box .glyph{ width:52px; height:52px; opacity:.5; }
+/* preview-box is a link to the live demo — quiet hover lift + accent cue */
+a.preview-box{ cursor:pointer; transition:transform .3s var(--ease), box-shadow .3s var(--ease), background .5s var(--ease); }
+a.preview-box:hover{ transform:translateY(-3px); box-shadow:var(--shadow-out); }
+a.preview-box:hover .eyebrow{ color:var(--accent); }
+a.preview-box:hover .glyph{ opacity:.85; }
+
+.cta-actions{ display:flex; gap:14px; flex-wrap:wrap; align-items:center; }
 
 .cta-block{
   max-width:1100px; margin:0 auto; padding:40px 48px 120px; display:flex; flex-direction:column; gap:24px; align-items:flex-start;
