@@ -1,0 +1,96 @@
+<!doctype html><html lang="en"><head><script>!function(){try{var t=localStorage.getItem("concordia-theme")||(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");document.documentElement.setAttribute("data-theme",t)}catch(e){document.documentElement.setAttribute("data-theme","light")}}()</script><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/><meta name="theme-color" content="#f1ede6" id="themeColorMeta"/><link rel="icon" type="image/svg+xml" href="./assets/icon.svg"/><link rel="icon" type="image/png" sizes="32x32" href="./assets/icon-32.png"/><link rel="icon" type="image/png" sizes="16x16" href="./assets/icon-16.png"/><link rel="apple-touch-icon" sizes="180x180" href="./assets/icon-180.png"/><link rel="manifest" href="./manifest.json"/><meta name="description" content="bloch-NDA by Grey Qub — automated NDA intelligence benchmarked to institutional standards. Reviewed, analyzed and remediated in minutes."/><meta http-equiv="Content-Security-Policy" content=" default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' http://127.0.0.1:8000 http://localhost:* https://concordia-nda-plus-production.up.railway.app; img-src 'self' data:; "><title>bloch-NDA — Grey Qub</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=Newsreader:ital,wght@0,300;0,400;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"><script defer="defer" src="./static/js/main.8eb6d5e9.js"></script><link href="./static/css/main.a614cf0d.css" rel="stylesheet"><link href="./static/css/grey-qub.css" rel="stylesheet"><style>
+/* ---- bloch-NDA splash — mirrors the Grey Qub landing hero ---- */
+.gq-splash{position:fixed;inset:0;z-index:10000;display:flex;flex-direction:column;
+  background:var(--color-bg);color:var(--color-text);isolation:isolate;
+  transition:opacity .6s var(--ease,cubic-bezier(.16,.8,.24,1));overflow:hidden}
+.gq-splash.hidden{opacity:0;pointer-events:none}
+html.splash-skip .gq-splash{display:none}
+.gq-splash-nav{display:flex;align-items:center;
+  padding:calc(26px + env(safe-area-inset-top,0px)) 48px 0}
+.gq-wordwrap{display:flex;flex-direction:column;gap:6px}
+.gq-word{font-family:"Space Grotesk",sans-serif;font-weight:400;letter-spacing:.24em;font-size:15.6px;color:var(--color-text)}
+.gq-wordline{position:relative;width:204px;height:1.5px;overflow:hidden;background:var(--color-border)}
+.gq-wordline::after{content:'';position:absolute;top:0;left:-35%;width:35%;height:100%;
+  background:linear-gradient(90deg,transparent,var(--sweep-color) 50%,transparent);animation:gq-sweep2 7s ease-in-out infinite}
+@keyframes gq-sweep2{0%{left:-35%}65%{left:100%}100%{left:100%}}
+.gq-splash-inner{flex:1;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:20px;
+  padding:0 48px;max-width:1300px;width:100%;margin:0 auto;box-sizing:border-box}
+.gq-eyebrow{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--color-text-muted)}
+.gq-splash-title{font-family:"Space Grotesk",sans-serif;font-weight:300;
+  font-size:clamp(42px,7vw,88px);line-height:1.02;letter-spacing:.01em;margin:22px 0 8px;color:var(--color-text);
+  animation:gq-rise .9s var(--ease,cubic-bezier(.16,.8,.24,1)) both}
+.gq-splash-tag{font-family:"Newsreader",serif;font-style:italic;font-size:19px;color:var(--color-text-muted);
+  max-width:480px;margin:18px 0 34px;line-height:1.5;animation:gq-rise .9s var(--ease) 120ms both}
+.gq-slash{color:var(--color-accent);font-style:normal}
+.gq-splash-cta{display:inline-flex;align-items:center;gap:10px;cursor:pointer;
+  font-family:"Space Grotesk",sans-serif;font-size:15px;letter-spacing:.04em;color:var(--color-bg);
+  background:var(--color-text);padding:16px 32px;border-radius:100px;border:none;
+  box-shadow:var(--shadow-md);transition:transform .3s var(--ease),background .3s var(--ease)}
+.gq-splash-cta:hover{transform:translateY(-3px);background:var(--color-accent)}
+.gq-splash-cta:focus-visible{outline:2px solid var(--color-accent);outline-offset:3px}
+.gq-arrow{display:inline-block;transition:transform .3s var(--ease)}
+.gq-splash-cta:hover .gq-arrow{transform:translateX(4px)}
+.gq-splash-stage{position:relative;height:520px;display:flex;align-items:center;justify-content:center}
+.gq-tile{width:min(70%,400px);aspect-ratio:1;border-radius:16px;background:var(--color-bg-soft);
+  box-shadow:var(--shadow-out);display:flex;align-items:center;justify-content:center;padding:30px;
+  animation:gq-float 7s ease-in-out infinite}
+.gq-tile svg{width:100%;height:100%}
+@keyframes gq-float{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-14px) rotate(.4deg)}}
+@keyframes gq-rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+.gq-scrollcue{position:absolute;bottom:calc(38px + env(safe-area-inset-bottom,0px));left:48px;
+  display:flex;align-items:center;gap:10px;font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.2em;color:var(--color-text-muted)}
+.gq-scrollcue .stem{width:1px;height:32px;background:var(--color-border);position:relative;overflow:hidden}
+.gq-scrollcue .stem::after{content:'';position:absolute;top:-100%;left:0;width:100%;height:100%;background:var(--color-accent);animation:gq-drip 2.2s ease-in-out infinite}
+@keyframes gq-drip{0%{top:-100%}60%{top:100%}100%{top:100%}}
+@media (max-width:880px){
+  .gq-splash-nav{padding-left:22px;padding-right:22px}
+  .gq-splash-inner{grid-template-columns:1fr;padding:0 22px;gap:0}
+  .gq-splash-stage{height:300px;order:-1;margin-top:8px}
+  .gq-scrollcue{left:22px}
+}
+@media (prefers-reduced-motion:reduce){.gq-splash-title,.gq-splash-tag,.gq-splash-cta,.gq-tile,.gq-wordline::after,.gq-scrollcue .stem::after{animation:none}}
+/* ---- initial loader (behind splash) ---- */
+.initial-loader{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;color:var(--color-text-muted,#8b877e);font-family:"Space Grotesk",-apple-system,sans-serif}
+.initial-loader .brand{font-size:22px;font-weight:300;letter-spacing:.18em;margin-bottom:22px;color:var(--color-text,#33322f)}
+.initial-loader .brand span{color:var(--color-accent,#6f89a3)}
+.initial-loader .spinner{width:30px;height:30px;border:2px solid var(--color-border,rgba(51,50,47,.14));border-top-color:var(--color-accent,#6f89a3);border-radius:50%;animation:spin .8s linear infinite;margin:0 auto}
+@keyframes spin{to{transform:rotate(360deg)}}
+</style></head><body><script>!function(){var s=!1;void 0!==window.concordiaAPI&&(s=!0);try{"1"===sessionStorage.getItem("concordia_splash_seen")&&(s=!0)}catch(s){}s&&document.documentElement.classList.add("splash-skip")}()</script>
+<div class="gq-splash" id="splashScreen" role="dialog" aria-modal="true" aria-label="Welcome to bloch-NDA by Grey Qub">
+  <div class="gq-splash-nav">
+    <a class="gq-wordwrap" href="../index.html" style="text-decoration:none">
+      <div class="gq-word">GREY QUB</div>
+      <div class="gq-wordline" aria-hidden="true"></div>
+    </a>
+  </div>
+  <div class="gq-splash-inner">
+    <div class="gq-splash-copy">
+      <span class="gq-eyebrow">/bloch-NDA</span>
+      <h1 class="gq-splash-title">Real Expertise.<br>Unreal Intelligence.</h1>
+      <p class="gq-splash-tag"><span class="gq-slash">/</span> Institutional-grade NDA review, benchmarked and remediated in minutes.</p>
+      <button type="button" class="gq-splash-cta" id="splashBegin">Begin <span class="gq-arrow" aria-hidden="true">&rarr;</span></button>
+    </div>
+    <div class="gq-splash-stage">
+      <div class="gq-tile">
+        <svg viewBox="0 0 230 230" fill="none">
+          <circle cx="115" cy="115" r="55" stroke="var(--color-text)" stroke-width="1" opacity="0.35"/>
+          <ellipse cx="115" cy="115" rx="55" ry="15" stroke="var(--color-text)" stroke-width="0.8" opacity="0.22"/>
+          <g stroke="var(--color-text)" stroke-width="1" opacity="0.3">
+            <path d="M60 90 L140 90 L140 170 L60 170 Z"/>
+            <path d="M90 60 L170 60 L170 140 L90 140 Z"/>
+            <line x1="60" y1="90" x2="90" y2="60"/>
+            <line x1="140" y1="90" x2="170" y2="60"/>
+            <line x1="140" y1="170" x2="170" y2="140"/>
+            <line x1="60" y1="170" x2="90" y2="140"/>
+          </g>
+          <line x1="60" y1="170" x2="170" y2="60" stroke="var(--color-accent)" stroke-width="3.4" stroke-linecap="round"/>
+          <circle cx="60" cy="170" r="4.5" fill="var(--color-accent)"/>
+          <circle cx="170" cy="60" r="4.5" fill="var(--color-accent)"/>
+          <circle cx="115" cy="115" r="3" fill="var(--color-text)"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div class="gq-scrollcue"><div class="stem"></div>BEGIN</div>
+</div>
+<noscript>You need to enable JavaScript to run bloch-NDA.</noscript><div id="root"><div class="initial-loader"><div class="brand">bloch-<span>NDA</span></div><div class="spinner"></div></div></div><script>function dismissSplash(){const e=document.getElementById("splashScreen");if(e&&!e.classList.contains("hidden")){e.classList.add("hidden"),e.setAttribute("aria-hidden","true");try{sessionStorage.setItem("concordia_splash_seen","1")}catch(e){}setTimeout(()=>{e.style.display="none"},650)}}document.documentElement.classList.contains("splash-skip")||(document.getElementById("splashBegin").addEventListener("click",dismissSplash),document.addEventListener("keydown",function(e){const s=document.getElementById("splashScreen");s&&!s.classList.contains("hidden")&&("Enter"!==e.key&&"Escape"!==e.key||(e.preventDefault(),dismissSplash()))}))</script></body></html>
