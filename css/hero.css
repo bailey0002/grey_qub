@@ -10,6 +10,7 @@
 }
 .hero-copy{ position:relative; z-index:2; }
 .hero h1{ font-size:clamp(42px, 7vw, 92px); line-height:1.02; letter-spacing:.01em; margin:22px 0 8px; }
+.hero h1 .tm{ font-size:.28em; letter-spacing:0; vertical-align:super; line-height:0; }
 .hero .tagline{
   font-family:'Newsreader', serif; font-style:italic; font-size:19px; color:var(--ink-dim);
   max-width:480px; margin-top:18px; line-height:1.5;
