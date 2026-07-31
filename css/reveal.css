@@ -1,0 +1,39 @@
+/* ==========================================================================
+   REVEAL — scroll-linked entrance/exit for [data-reveal] elements.
+   Two-way: elements settle in as they enter the viewport and lift back out
+   as they leave, so the copy reads as something the scroll brings into
+   focus rather than a one-shot animation.
+
+   The hidden state is scoped to .js-reveal (set by the inline flag in
+   <head>) so the copy stays visible if JS never runs.
+   ========================================================================== */
+
+.js-reveal [data-reveal]{
+  opacity:0;
+  transform:translateY(18px);
+  filter:blur(3px);
+  transition:
+    opacity .85s var(--ease),
+    transform .85s var(--ease),
+    filter .85s var(--ease);
+  transition-delay:var(--reveal-delay, 0s);
+  will-change:opacity, transform;
+}
+.js-reveal [data-reveal].is-visible{
+  opacity:1;
+  transform:none;
+  filter:blur(0);
+}
+
+/* leaving is quicker than arriving — the fade-out shouldn't trail the scroll */
+.js-reveal [data-reveal]:not(.is-visible){
+  transition-duration:.45s;
+  transition-delay:0s;
+}
+
+@media (prefers-reduced-motion: reduce){
+  .js-reveal [data-reveal],
+  .js-reveal [data-reveal].is-visible{
+    opacity:1; transform:none; filter:none; transition:none;
+  }
+}

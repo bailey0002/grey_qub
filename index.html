@@ -12,6 +12,9 @@
     document.documentElement.setAttribute('data-theme', theme);
     document.getElementById('themeColorMeta').setAttribute('content', theme === 'dark' ? '#1b1917' : '#f1ede6');
   }catch(e){}
+  /* flags that js/reveal.js will run, so css/reveal.css can hide [data-reveal]
+     elements before first paint — without JS the copy stays visible */
+  document.documentElement.classList.add('js-reveal');
 })();
 </script>
 <title>Grey Qub — Real Expertise. Unreal Intelligence.</title>
@@ -31,6 +34,7 @@
 <link rel="stylesheet" href="css/buttons.css">
 <link rel="stylesheet" href="css/footer.css">
 <link rel="stylesheet" href="css/landing.css">
+<link rel="stylesheet" href="css/reveal.css">
 </head>
 <body>
 <div class="grain"></div>
@@ -89,10 +93,9 @@
 </section>
 
 <div class="manifesto">
-  <span class="eyebrow">/thesis</span>
-  <p>There is little debate about what AI does well: it consumes and produces information at a pace no reader can match, with a fluency so seamless that its fissures pass unnoticed. That is precisely the problem. Legal and regulatory analysis has zero tolerance for fabrication, drift, or sycophancy — yet nearly every AI-powered application treats those failures at the surface, ignoring the nature of the transformer beneath and pushing the residual risk back onto the client. <span class="caveat">(Warning: all results should be reviewed by an attorney.)</span></p>
-  <p>QUB goes straight to the source. Recognizing that input shapes output, it calibrates — and enhances — the model itself, making AI one partner among several in a disciplined progression from detection through analysis to remediation. Deployed through the structured Bloch framework, each instrument tuned to a single legal domain, QUB engineers to the model’s behavior rather than around it — harmonizing the fluidity of semantic intelligence with the rigidity of deterministic process. What falls away are the vagaries of the plausible and even the probable. What remains converges on the singularity of a verdict.</p>
-  <p class="manifesto-close">The result: <strong>Real Expertise. Unreal Intelligence.<sup class="tm">™</sup></strong></p>
+  <span class="eyebrow" data-reveal>/QUB architecture</span>
+  <p data-reveal>There is little debate about what AI does well: it consumes and produces information at a pace no reader can match, with a fluency so seamless that its fissures pass unnoticed. That is precisely the problem. Legal and regulatory analysis has zero tolerance for fabrication, drift, or sycophancy — yet nearly every AI-powered application treats those failures at the surface, ignoring the nature of the transformer beneath and pushing the residual risk back onto the client. <span class="caveat">(Warning: all results should be reviewed by an attorney.)</span></p>
+  <p data-reveal>QUB goes straight to the source. Recognizing that input shapes output, it calibrates — and enhances — the model itself, making AI one partner among several in a disciplined progression from detection through analysis to remediation. Deployed through the structured Bloch framework, each instrument tuned to a single legal domain, QUB engineers to the model’s behavior rather than around it — harmonizing the fluidity of semantic intelligence with the rigidity of deterministic process. What falls away are the vagaries of the plausible and even the probable. What remains converges on the singularity of a verdict: <strong class="claim">Real Expertise. Unreal Intelligence.<sup class="tm">™</sup></strong></p>
 </div>
 
 <div class="section-title" id="blochs">
@@ -177,6 +180,7 @@
 
 <script src="js/nav.js"></script>
 <script src="js/theme.js"></script>
+<script src="js/reveal.js"></script>
 <script type="module" src="js/qub-sphere.js"></script>
 <script>
   const stage = document.getElementById('stage');
