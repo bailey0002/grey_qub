@@ -5,6 +5,22 @@
 .section-title{ padding:70px 48px 10px; max-width:1500px; margin:0 auto; }
 .section-title .lede{ color:var(--ink-dim); font-size:16px; line-height:1.75; max-width:660px; margin-top:10px; }
 
+/* thesis copy that sits between the hero and the /blochs grid — long-form
+   prose, so it runs narrower than the grid and leans on the serif face */
+.manifesto{ padding:80px 48px 10px; max-width:1500px; margin:0 auto; }
+.manifesto p{ color:var(--ink-dim); font-size:16.5px; line-height:1.8; max-width:760px; margin:18px 0 0; }
+.manifesto .caveat{ font-style:italic; }
+/* the trademark claim closes the second paragraph — lifted out of the dimmed
+   body ink so it lands, but kept inline rather than set as its own line */
+.manifesto .claim{
+  font-family:'Space Grotesk',sans-serif; font-weight:400; font-style:italic; color:var(--ink);
+}
+.manifesto .tm{ font-size:.55em; letter-spacing:0; vertical-align:super; line-height:0; }
+
+/* each block arrives a beat after the one above it */
+.manifesto p[data-reveal]{ --reveal-delay:.1s; }
+.manifesto p[data-reveal] + p[data-reveal]{ --reveal-delay:.2s; }
+
 .lockup{ display:flex; align-items:center; gap:12px; padding-top:14px; border-top:1px solid var(--line); }
 .lockup .mini-icon{ width:30px; height:30px; }
 .lockup .word{ font-family:'Space Grotesk',sans-serif; font-size:13px; letter-spacing:.18em; }
@@ -16,6 +32,8 @@
 .icon-tile svg{ width:58%; height:58%; }
 
 @media (max-width:880px){
+  .manifesto{ padding:56px 22px 6px; }
+  .manifesto p{ font-size:15.5px; }
   .section-title{ padding:50px 22px 10px; }
   .grid{ padding:10px 22px 60px; }
 }
