@@ -28,9 +28,9 @@
 }
 @keyframes drip{ 0%{top:-100%;} 60%{top:100%;} 100%{top:100%;} }
 
-.stage{ position:relative; height:528px; display:flex; align-items:center; justify-content:center; transition:transform .2s var(--ease); }
+.stage{ position:relative; height:607px; display:flex; align-items:center; justify-content:center; transition:transform .2s var(--ease); }
 .stage-tile{
-  width:408px; height:408px; border-radius:16px; background:var(--bg-soft); box-shadow:var(--shadow-out);
+  width:469px; height:469px; border-radius:16px; background:var(--bg-soft); box-shadow:var(--shadow-out);
   display:flex; align-items:center; justify-content:center; padding:26px;
 }
 .stage-tile svg{ width:100%; height:100%; }
@@ -39,8 +39,9 @@
 /* qub-sphere — the animated 3D Bloch mark that replaces .stage-tile as the
    hero visual. Floats free on the page (no card treatment); .stage-tile
    stays in the DOM as a no-JS/WebGL-failure fallback and is only shown if
-   js/qub-sphere.js can't initialize. */
-.qub-sphere{ width:min(72vw, 408px); aspect-ratio:1/1; margin:0 auto; }
+   js/qub-sphere.js can't initialize. Sized ~15% larger than the base 408px
+   tile. */
+.qub-sphere{ width:min(83vw, 469px); aspect-ratio:1/1; margin:0 auto; }
 .qub-sphere canvas{ display:block; width:100%; height:100%; }
 
 /* lighter header used on interior pages (bloch-NDA, bloch-SLR, contact) */
@@ -57,9 +58,9 @@
     padding:110px calc(22px + env(safe-area-inset-right, 0px)) 60px calc(22px + env(safe-area-inset-left, 0px));
     text-align:left;
   }
-  .stage{ height:336px; margin-top:16px; }
-  .stage-tile{ width:288px; height:288px; }
-  .qub-sphere{ width:min(72vw, 288px); }
+  .stage{ height:386px; margin-top:16px; }
+  .stage-tile{ width:331px; height:331px; }
+  .qub-sphere{ width:min(83vw, 331px); }
   .page-header{
     padding:110px calc(22px + env(safe-area-inset-right, 0px)) 30px calc(22px + env(safe-area-inset-left, 0px));
   }
